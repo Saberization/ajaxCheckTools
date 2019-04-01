@@ -1,0 +1,22 @@
+{
+  "name": "ajaxchecktools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}

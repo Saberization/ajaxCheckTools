@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax 在线校验工具</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 10px;
+    }
+
+    #ajaxParams,
+    #result {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #9e9e9e;
+    }
+
+    .clearfix:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden
+    }
+
+    .panel-title {
+      margin-top: 8px;
+    }
+
+    .clearfix {
+      *+height: 1%;
+    }
+
+    .l {
+      float: left;
+    }
+
+    .r {
+      float: right;
+    }
+
+    .mr10 {
+      margin-right: 10px;
+    }
+
+    .mb15 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-group">
+      <label for="name">接口</label>
+      <input type="text" class="form-control" id="interface"
+        placeholder="请输入接口地址">
+    </div>
+
+    <form class="form-inline mb15" role="form">
+      <div class="form-group mr10" style="width: 61%">
+        <label class="sr-only" for="stream">base64</label>
+        <input type="text" class="form-control" id="stream" placeholder="base64" style="width: 100%">
+      </div>
+      <div class="form-group">
+        <input type="file" id="inputfile" accept="image/*">
+      </div>
+    </form>
+
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h3 class="panel-title l">请求参数</h3>
+        <button type="button" class="btn btn-primary r" id="btn-request">发送请求</button>
+        <button type="button" class="btn btn-primary r mr10" id="btn-beautify">format</button>
+      </div>
+      <div class="panel-body">
+        <div id="ajaxParams"></div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">返回数据</h3>
+      </div>
+      <div class="panel-body">
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // assign 的 IE 兼容代码
+    if (typeof Object.assign != 'function') {
+      Object.defineProperty(Object, "assign", {
+        value: function assign(target, varArgs) {
+          'use strict';
+          if (target == null) {
+            throw new TypeError('Cannot convert undefined or null to object');
+          }
+
+          let to = Object(target);
+
+          for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+
+            if (nextSource != null) {
+              for (let nextKey in nextSource) {
+                if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                  to[nextKey] = nextSource[nextKey];
+                }
+              }
+            }
+          }
+          return to;
+        },
+        writable: true,
+        configurable: true
+      });
+    }
+  </script>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="./libs/beautify.min.js"></script>
+  <script src="./libs/ace.js"></script>
+  <script src="./dist/ajaxCheckTools.min.js"></script>
+</body>
+
+</html>
